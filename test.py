@@ -1,28 +1,28 @@
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.by import By             #TV2
+from selenium.webdriver.common.by import By
 
 
 driver = webdriver.Chrome()
 
-driver.get("https://vnexpress.net")
+driver.get("https://fullstack.edu.vn") #step 1
 
-
-# driver.implicitly_wait(1.5) #chờ ngầm định đề phòng mạng chậm load không nổi
-
+#step 2 bam vao dang nhap
 testXpath = driver.find_elements(By.XPATH, '/html/body/section[5]/div/div[1]/article')
-for testXpaths in testXpath:
-    try:
-        Tieu_De = testXpaths.find_element(By.TAG_NAME, 'h3').text
-        Mieu_Ta = testXpaths.find_element(By.TAG_NAME, "p").text
-        Link_BaiViet = testXpaths.find_element(By.XPATH, 'h3/a').get_attribute('href')
-        print(Tieu_De)
-        print(Mieu_Ta)
-        print(Link_BaiViet)
-        print('=======================')
-    except NoSuchElementException:
-        print('Error ko hiện thông tin')
-        pass
+
+# testXpath = driver.find_elements(By.XPATH, '/html/body/section[5]/div/div[1]/article')
+# for testXpaths in testXpath:
+#     try:
+#         Tieu_De = testXpaths.find_element(By.TAG_NAME, 'h3').text
+#         Mieu_Ta = testXpaths.find_element(By.TAG_NAME, "p").text
+#         Link_BaiViet = testXpaths.find_element(By.XPATH, 'h3/a').get_attribute('href')
+#         print(Tieu_De)
+#         print(Mieu_Ta)
+#         print(Link_BaiViet)
+#         print('=======================')
+#     except NoSuchElementException:
+#         print('Error ko hiện thông tin')
+#         pass
 
 
 
