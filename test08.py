@@ -13,8 +13,8 @@ driver.find_element(By.CSS_SELECTOR, '#root > div.NavBar_wrapper__4m3K5 > div.Na
 driver.find_element(By.CSS_SELECTOR, '#root > div > div.Login_container__l\+22X > div.Login_content__Clzqv > div.Login_body__t6Xgp > div > div:nth-child(1)').click()
 #Step 4: Nhập số điện thoại vào ô nhập số điện thoại
 driver.find_element(By.CSS_SELECTOR, '#root > div > div.Login_container__l\+22X > div.Login_content__Clzqv > div.Login_body__t6Xgp > div > div:nth-child(1) > div > div.FormInput_inputWrap__mjtRx > input[type=text]').send_keys('0339255709')
-#step 5 bam vao dang nhap
-driver.find_element(By.CSS_SELECTOR, '#root > div > div.Login_container__l\+22X > div.Login_content__Clzqv > div.Login_body__t6Xgp > div > button > div').click()
+#Step 5: Ấn vào nút gởi mã
+driver.find_element(By.CSS_SELECTOR, '#root > div > div.Login_container__l\+22X > div.Login_content__Clzqv > div.Login_body__t6Xgp > div > div:nth-child(2) > div > div.FormInput_inputWrap__mjtRx > div').click()
 
 #sau khi thực hiện xong thì chỉ tắt trình duyệt
 # driver.close()
