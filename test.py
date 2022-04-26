@@ -1,47 +1,26 @@
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 
 
 driver = webdriver.Chrome()
 
-driver.get("https://fullstack.edu.vn") #step 1
 
-#step 2 bam vao dang nhap
-testXpath = driver.find_elements(By.XPATH, '/html/body/section[5]/div/div[1]/article')
+#step 1 vào google
+driver.get("https://www.google.com")
 
-# testXpath = driver.find_elements(By.XPATH, '/html/body/section[5]/div/div[1]/article')
-# for testXpaths in testXpath:
-#     try:
-#         Tieu_De = testXpaths.find_element(By.TAG_NAME, 'h3').text
-#         Mieu_Ta = testXpaths.find_element(By.TAG_NAME, "p").text
-#         Link_BaiViet = testXpaths.find_element(By.XPATH, 'h3/a').get_attribute('href')
-#         print(Tieu_De)
-#         print(Mieu_Ta)
-#         print(Link_BaiViet)
-#         print('=======================')
-#     except NoSuchElementException:
-#         print('Error ko hiện thông tin')
-#         pass
+driver.title # => "Google"
 
+driver.implicitly_wait(0.5)
 
+search_box = driver.find_element(By.NAME, "q")
+search_button = driver.find_element(By.NAME, "btnK")
 
+#step 2: nhập dữ liệu vào ô
+search_box.send_keys("Selenium")
 
-#lấy title
-# print(driver.title)
+#step 3: bấm vào button tìm kiếm
+search_button.click()
 
-#lấy page soure
-# print(driver.page_source)
+driver.find_element(By.NAME, "q").get_attribute("value") # => "Selenium"
 
-
-
-
-
-
-
-
-#sau khi thực hiện xong thì tắt hẳn những thứ liên quan
-# driver.quit()
-
-#sau khi thực hiện xong thì chỉ tắt trình duyệt
-driver.close()
+driver.quit()
